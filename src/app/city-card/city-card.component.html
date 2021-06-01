@@ -1,59 +1,61 @@
-<div class="card mb-3" style="width: 18rem;">
-  <img src="assets/cardbg.jpg" class="card-img-top">
-  <div class="card-img-overlay" style="height:110px;">
-    <div class="container">
-      <h2 class="card-title text-white m-b-0 dl"> {{hero.name}}, {{hero.sys.country}}</h2>
-      <small class="card-text text-white font-light">{{ dateToday | date }}</small>
+<a routerLink='city/{{hero.id}}'>
+  <div class="card mb-3" style="width: 18rem;">
+    <img src="assets/cardbg.jpg" class="card-img-top">
+    <div class="card-img-overlay" style="height:110px;">
+      <div class="container">
+        <h2 class="card-title text-white m-b-0 dl"> {{hero.name}}, {{hero.sys.country}}</h2>
+        <small class="card-text text-white font-light">{{ dateToday | date }}</small>
+      </div>
+
+      <table class=" table1 container">
+        <tr>
+          <td>
+            <h2 class="text-white">
+              <i class="fas fa-cloud"></i>
+            </h2>
+          </td>
+          <td>
+            <h2 class=" text-white">{{temp}}℃</h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <small class="card-text text-white font-light">{{hero.weather[0].description}}</small>
+          </td>
+          <td rowspan="2">
+            <small class="card-text text-white font-light">Temp Min: {{tempMin}}℃</small>
+            <br/>
+            <small class="card-text text-white font-light">Temp Max: {{tempMax}}℃</small>
+          </td>
+        </tr>
+        <tr></tr>
+      </table>
+
     </div>
+    <div class="card-body bg-dark text-white container ">
+      <table class="table table-dark table-borderless">
+        <tr>
+          <td>{{hero.main.pressure}}hPa</td>
+          <td>
+            <i class="fas fa-paper-plane"></i>
+          </td>
+          <td>{{sunrise}}</td>
+        </tr>
+        <tr>
+          <td>{{hero.main.humidity}}%</td>
+          <td>{{hero.wind.speed}}</td>
+          <td>{{sunset}}</td>
+        </tr>
+        <tr>
+          <td>{{visibility}}km</td>
+          <td></td>
+          <td>
 
-    <table class=" table1 container">
-      <tr>
-        <td>
-          <h2 class="text-white">
-            <i class="fas fa-cloud"></i>
-          </h2>
-        </td>
-        <td>
-          <h2 class=" text-white">{{temp}}℃</h2>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <small class="card-text text-white font-light">{{hero.weather[0].description}}</small>
-        </td>
-        <td rowspan="2">
-          <small class="card-text text-white font-light">Temp Min: {{tempMin}}℃</small>
-          <br/>
-          <small class="card-text text-white font-light">Temp Max: {{tempMax}}℃</small>
-        </td>
-      </tr>
-      <tr></tr>
-    </table>
+          </td>
+        </tr>
 
+      </table>
+
+    </div>
   </div>
-  <div class="card-body bg-dark text-white container ">
-    <table class="table table-dark table-borderless">
-      <tr>
-        <td>{{hero.main.pressure}}hPa</td>
-        <td>
-          <i class="fas fa-paper-plane"></i>
-        </td>
-        <td>{{sunrise}}</td>
-      </tr>
-      <tr>
-        <td>{{hero.main.humidity}}%</td>
-        <td>{{hero.wind.speed}}</td>
-        <td>{{sunset}}</td>
-      </tr>
-      <tr>
-        <td>{{visibility}}km</td>
-        <td></td>
-        <td>
-          <a routerLink='city/{{hero.id}}'>view</a>
-        </td>
-      </tr>
-
-    </table>
-
-  </div>
-</div>
+</a>
